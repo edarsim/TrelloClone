@@ -1,0 +1,53 @@
+<div class="main container">
+    <div class="row">
+        <div class ="col-9">
+            <h2>Welcome to your Dashboard</h2>
+        </div>
+        <div class="user_info col-3 align-items-end">
+            Hello, {{ getUsername() }} <button (click)="logout()">Logout</button>
+        </div>
+    </div>
+    
+    <div class="row">
+        <p>Here you can manage your boards and tasks.</p>
+        <!-- Board Selection -->
+        <div class="board_select col-3">
+            <select class="form-select" (change)="onBoardSelect($event)" [(ngModel)]="selectedBoardId">
+                <option *ngFor="let board of boards" [value]="board.id">
+                    {{ board.name }}
+                </option>
+            </select>
+        </div>
+        
+        <div class="board_buttons col-3">
+            <button type="button" class="btn btn-info" (click)="createBoard()">Add Board</button>
+            <button type="button" class="btn btn-danger" (click)="deleteBoard(selectedBoardId)">Delete Board</button>
+        </div>
+    </div>
+    <br />
+    <div *ngIf="selectedBoardId">
+        <div class="row">
+            <h3>Add List to Board</h3>
+            <div class="input_list_name col-3">
+                <input type="text" class="form-control" [(ngModel)]="newListName" placeholder="Enter list name">
+            </div>
+            <div class="button_list_name col-3">
+                <button type="button" class="btn btn-info" (click)="createList()">Add List</button>
+            </div>
+        </div>
+        <br />
+        <!-- Lists for the selected board -->
+        <div class="list-container" cdkDropListGroup>
+            <div *ngFor="let list of lists" class="list-wrapper" 
+                cdkDropList 
+                [cdkDropListData]="list.cards"
+                (cdkDropListDropped)="onCardDrop($event)">
+                <app-list 
+                [list]="list" 
+                [boardId]="selectedBoardId" 
+                (listDeleted)="deleteListFromDashboard($event)">
+                </app-list>
+            </div>
+        </div>
+    </div>
+</div>

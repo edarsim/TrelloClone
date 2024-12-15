@@ -1,0 +1,147 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+h1 {
+  font-size: 3.125rem;
+  color: var(--gray-900);
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.125rem;
+  margin: 0;
+  font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+}
+
+p {
+  margin: 0;
+  color: var(--gray-700);
+}
+
+main {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: inherit;
+  position: relative;
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 3rem;
+}
+
+.content h1 {
+  margin-top: 1.75rem;
+}
+
+.content p {
+  margin-top: 1.5rem;
+}
+
+
+@media screen and (max-width: 650px) {
+  .content {
+    flex-direction: column;
+    width: max-content;
+  }
+
+
+}
+
+.auth-container {
+  width: 300px;
+  margin: 100px auto;
+  text-align: center;
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-container form div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.auth-container button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.auth-container a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.dashboard {
+  padding: 20px;
+}
+
+.board {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  width: 150px;
+  text-align: center;
+}
+
+.board-container {
+  display: flex;
+  /* Display items horizontally */
+  gap: 20px;
+  /* Optional: space between lists */
+  overflow-x: auto;
+  /* Optional: horizontal scroll if the lists overflow */
+  padding: 20px;
+}
+
+.list-container {
+  display: flex;
+  gap: 1rem;
+  float: left;
+}
+
+.list-container::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.app-list {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  /* Each list should have a fixed width */
+  min-width: 300px;
+  /* Optional: prevents shrinking of the list */
+}
+
+.card-container {
+  margin: 0.5rem 0;
+  cursor: move;
+}
+
+.card {
+  background: #fff;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+

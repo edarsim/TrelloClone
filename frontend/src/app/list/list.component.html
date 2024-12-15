@@ -1,0 +1,27 @@
+<div class="app-list">
+    <h4>{{ list.name }}</h4>
+    <!-- Cards within the list -->
+    <div 
+        class="card-container" 
+        *ngFor="let card of cards" 
+        cdkDrag 
+        [cdkDragData]="card"
+    >
+        <div class="card">
+            <h5>{{ card.title }}</h5>
+            <p>{{ card.description }}</p>
+        </div>
+    </div>
+
+    <!-- Add Card Form -->
+    <button type="button" class="btn btn-outline-primary btn-sm" (click)="addCard()">Add Card</button>
+    <button type="button" class="btn btn-outline-danger btn-sm align-items-end" (click)="deleteList()">Delete List</button>
+    <div *ngIf="addingCardTo">
+        <form (ngSubmit)="submitCard()">
+            <input type="text" placeholder="Title" [(ngModel)]="newCard.title" name="title" />
+            <textarea placeholder="Description" [(ngModel)]="newCard.description" name="description"></textarea>
+            <button type="submit">Save</button>
+            <button type="button" (click)="cancelAddingCard()">Cancel</button>
+        </form>
+    </div>
+</div>
