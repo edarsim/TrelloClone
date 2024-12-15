@@ -21,12 +21,7 @@ p {
   color: var(--gray-700);
 }
 
-main {
-  width: 100%;
-  min-height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.main {
   padding: 1rem;
   box-sizing: inherit;
   position: relative;
@@ -46,6 +41,11 @@ main {
 
 .content p {
   margin-top: 1.5rem;
+}
+
+.board_lists{
+  border-top: 1px solid #dedede;
+  padding-top: 20px;
 }
 
 

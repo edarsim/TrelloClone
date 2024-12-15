@@ -28,10 +28,10 @@
     </div>
     <div *ngIf="addingCardTo">
         <form (ngSubmit)="submitCard()">
-            <input type="text" placeholder="Title" [(ngModel)]="newCard.title" name="title" />
-            <textarea placeholder="Description" [(ngModel)]="newCard.description" name="description"></textarea>
-            <button type="submit">Save</button>
-            <button type="button" (click)="cancelAddingCard()">Cancel</button>
+            <input type="text" placeholder="Title" class="form-control" [(ngModel)]="newCard.title" name="title" />
+            <textarea class="form-control" placeholder="Description" [(ngModel)]="newCard.description" name="description"></textarea>
+            <button type="submit" class="btn btn-outline-primary btn-sm">Save</button>
+            <button type="button" class="btn btn-outline-danger btn-sm" (click)="cancelAddingCard()">Cancel</button>
         </form>
     </div>
 </div>

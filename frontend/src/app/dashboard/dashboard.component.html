@@ -4,12 +4,13 @@
             <h2>Welcome to your Dashboard</h2>
         </div>
         <div class="user_info col-3 align-items-end">
-            Hello, {{ getUsername() }} <button (click)="logout()">Logout</button>
+            Hello, {{ getUsername() }} <button type="button" class="btn btn-outline-dark" (click)="logout()">Logout</button>
         </div>
     </div>
     
     <div class="row">
         <p>Here you can manage your boards and tasks.</p>
+        <br />
         <!-- Board Selection -->
         <div class="board_select col-3">
             <select class="form-select" (change)="onBoardSelect($event)" [(ngModel)]="selectedBoardId">
@@ -25,7 +26,7 @@
         </div>
     </div>
     <br />
-    <div *ngIf="selectedBoardId">
+    <div class="board_lists" *ngIf="selectedBoardId">
         <div class="row">
             <h3>Add List to Board</h3>
             <div class="input_list_name col-3">
