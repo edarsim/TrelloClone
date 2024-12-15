@@ -6,6 +6,7 @@ import lombok.Data;
 public class Card {
 
     private Long id;
-    private String text;
-    private Long cardListId;
+    private String title;
+    private String description;
+    private Long listId;
 }

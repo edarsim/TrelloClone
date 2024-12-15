@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms'; // Import FormsModule
 
 @Component({
   selector: 'app-list',
-  imports: [FormsModule, DragDropModule, CommonModule,CdkDrag],
+  imports: [FormsModule, DragDropModule, CommonModule, CdkDrag],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
@@ -21,9 +21,9 @@ export class ListComponent {
   cards: Card[] = []; // Store the fetched cards here
   newCard: Partial<Card> = {};
   addingCardTo: number | null = null;
-  
-  constructor(private cardService: CardService, private boardService: BoardService) {}
-  
+
+  constructor(private cardService: CardService, private boardService: BoardService) { }
+
   ngOnInit(): void {
     if (this.list?.id) {
       this.fetchCards(); // Fetch cards for the current list
@@ -61,23 +61,24 @@ export class ListComponent {
     });
   }
 
-  // Optionally, use fetchCards() to refresh the cards after an update
   refreshCards(): void {
     this.fetchCards();
   }
 
   // Delete a list
   deleteList(): void {
-    if (this.list?.id && this.boardId) {
-      this.boardService.deleteList(this.boardId, this.list.id).subscribe({
-        next: () => {
-          console.log(`List with ID ${this.list.id} deleted successfully.`);
-          this.listDeleted.emit(this.list.id); // Notify parent about deletion
-        },
-        error: (err) => console.error('Error deleting list:', err)
-      });
-    } else {
-      console.error('Board ID or List ID is undefined, cannot delete list.');
+    if (confirm('Are you sure you want to delete the list?')) {
+      if (this.list?.id && this.boardId) {
+        this.boardService.deleteList(this.boardId, this.list.id).subscribe({
+          next: () => {
+            console.log(`List with ID ${this.list.id} deleted successfully.`);
+            this.listDeleted.emit(this.list.id); // Notify parent about deletion
+          },
+          error: (err) => console.error('Error deleting list:', err)
+        });
+      } else {
+        console.error('Board ID or List ID is undefined, cannot delete list.');
+      }
     }
   }
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CardListDAO {
 
-    Long createCardList(CardList cardList);
+    Long createCardList(String name, Long boardId);
     List<CardList> findCardListByBoardId(Long boardId);
     void deleteCardList(Long listId);
 }

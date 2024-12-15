@@ -1,5 +1,12 @@
 <div class="app-list">
-    <h4>{{ list.name }}</h4>
+    <div class="list_header row">
+        <div class="list_title col-10">
+            <h4>{{ list.name }}</h4>
+        </div>
+        <div class="delete_list_btn col-2">
+            <button type="button" title="Delete List" class="btn btn-outline-danger btn-sm float-end" (click)="deleteList()">X</button>
+        </div>
+    </div>
     <!-- Cards within the list -->
     <div 
         class="card-container" 
@@ -14,8 +21,11 @@
     </div>
 
     <!-- Add Card Form -->
-    <button type="button" class="btn btn-outline-primary btn-sm" (click)="addCard()">Add Card</button>
-    <button type="button" class="btn btn-outline-danger btn-sm align-items-end" (click)="deleteList()">Delete List</button>
+    <div class="container">
+        <div class="card_buttons row">
+            <button type="button" class="col-4 btn btn-outline-primary btn-sm" (click)="addCard()">Add Card</button>
+        </div>
+    </div>
     <div *ngIf="addingCardTo">
         <form (ngSubmit)="submitCard()">
             <input type="text" placeholder="Title" [(ngModel)]="newCard.title" name="title" />

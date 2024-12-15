@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface BoardDAO {
 
-    Long createBoard(Board board);
+    Long createBoard(String boardName, String username);
+    List<Board> getAllBoards();
     List<Board> findBoardsByUserId(Long userId);
     void deleteBoard(Long boardId);
 }

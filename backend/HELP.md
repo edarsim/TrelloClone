@@ -1,12 +1,10 @@
 # Getting Started
 
-### Simplified Trello clone app
+###  A simplified Trello app
 
 * Used as a learning project 
 
-
 ### Technologies used
-The following guides illustrate how to use some features concretely:
 
 * Java
 * Spring 
