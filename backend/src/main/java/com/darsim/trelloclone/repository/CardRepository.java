@@ -43,9 +43,12 @@ public class CardRepository implements CardDAO {
 
     @Override
     public void deleteCard(Long cardId) {
+        if (cardId == null) {
+            throw new IllegalArgumentException("Card ID cannot be null");
+        }
         var query = "DELETE FROM cards WHERE id = :cardId";
         Map<String, Object> params = new HashMap<>();
-        params.put("id", cardId);
+        params.put("cardId", cardId);
         jdbcTemplate.update(query, params);
     }
 }
